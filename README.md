@@ -1,7 +1,11 @@
 # Ember Components: Components Lifecycle App
 
+## Ciclo de Vida de los Componentes en Ember
+
+
 # Referencias
 + [Guía oficial: componentes] (https://guides.emberjs.com/v2.8.0/components/defining-a-component/)
+..* [Guía oficial: componentes: lifecycle] (https://guides.emberjs.com/v2.8.0/components/the-component-lifecycle/)
 + [Componentes contextuales] (http://emberjs.com/blog/2016/01/15/ember-2-3-released.html#toc_contextual-components)
 + [Cookbook: recetas para tareas típicas] (http://emberwatch.com/recipes/helpers_and_components)
 + [Buen tutorial ✓] (http://yoember.com/)
