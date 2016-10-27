@@ -1,0 +1,28 @@
+<div>
+  <h2>{{#link-to 'about'}}Sobre nosotros (cambiar de ruta){{/link-to}}</h2>
+  <p>Triggers: <strong>willDestroyElement, willClearRender, didDestroyElement</strong></p>
+</div>
+
+<div>
+  <button {{action 'loadComponent'}}>(Des)Cargar Componente</button>
+  <p>Triggers: <strong>init</strong>, didReceiveAttrs, willRender, <strong>didInsertElement</strong>, didRender | willDestroyElement, willClearRender, didDestroyElement</p>
+</div>
+<div>
+
+  <h2>Cambio de atributos</h2>
+  <p>Nombre Aplicación: {{input type="text" value=appName}}</p>
+  <p>Triggers: <strong>didUpdateAttrs, didReceiveAttrs</strong>, willUpdate, willRender, didUpdate, didRender</p>
+</div>
+
+<div>
+  <h2>Re-render iniciado internamente</h2>
+  <p>data.foo.firstObject.a: {{input type="text" value=data.foo.firstObject.a}}</p>
+  <p>data.foo.b: {{input type="text" value=data.bar}}</p>
+  <p>Triggers: willUpdate, willRender, didUpdate, didRender</p>
+</div>
+
+<hr>
+
+{{#if flag}}
+  {{super-component name=appName data=data}}
+{{/if}}
