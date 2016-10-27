@@ -116,9 +116,21 @@ Acá cambiamos atributos del componente para visualizar la ejecución de los *li
 ```
 
 Al cargar la aplicación (o refrescar la página) se ejecutan naturalmente los 5 primeros hooks.
+
 Al cambiar de ruta el componente detecta que es hora de removerse del DOM, por lo que se ejecutan los 3 últimos hooks.
+
 De la misma forma se ejecutan los de destrucción y los de renderización alternadamente al envolver el componente en un bloque condicional, lo que hace que se remueva o inserte en el DOM según la acción llamada en evento click del botón.
-Todos los hooks de las etapas de re-renderizado se ejecutan al modificar 
+
+El componente se re-renderiza por acción del usuario al modificar uno de sus atributos, por lo que todos los hooks de esta etapa de ejecutan al modificar `name`. Razones por las que cada una se llama:
++ `didUpdateAttrs`: un atributo del componente cambió. Llamado antes del re-render.
++ `didRecieveAttrs`: un atributo pasado al componente se actualizó.
++ `willUpdate`: el componente está a punto de actualizarse y re-renderizarse.
++ `willRender`: el componente está a punto de (re-)renderizarse.
++ `didUpdate`: el componente se actualizó y re-renderizó.
++ `didRender`: el componente se (re-)renderizó.
+
+Notar que `didUpdateAttrs` no se llama al re-renderizar el componente internamente vía `.rerender()`, `.set()` o modificando el objeto, lo cual sucede en este caso. Al componente se le pasa un objeto `data` que no es cambiado como atributo pasado al objeto, razón por la que tampoco `didRecieveAttrs` se llama, sino que atributos de este atributo se modifican internamente como propiedad del objeto controller.
+
 
 # Referencias
 + [Guía oficial: componentes] (https://guides.emberjs.com/v2.8.0/components/defining-a-component/)
